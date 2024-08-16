@@ -126,7 +126,7 @@ public class Player : Entity
       {
         case "Goomba":
         case "Turtle":
-          if (colDirection.Y >= 0)
+          if (colDirection.Y <= 0)
           {
             body.FixtureList[0].IsSensor = true;
             body.SetLinearVelocity(new Vector2(0, -MathF.Sqrt(Game.box2D.Gravity.Y * 2 * (instance.Tile.H / Game.pixelToMeter))));
@@ -134,7 +134,7 @@ public class Player : Entity
           break;
 
         case "Collider":
-          if (colDirection.Y < 0)
+          if (colDirection.Y > 0)
           {
             isOnTheGround = true;
           }

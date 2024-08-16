@@ -23,8 +23,8 @@ public class ContactListener : IContactListener
     Entity entityA = FindEntity((bodyA.UserData as BodyData).Iid, entities.ToArray());
     Entity entityB = FindEntity((bodyB.UserData as BodyData).Iid, entities.ToArray());
 
-    entityA.CollisionStart((BodyData)bodyA.UserData, (BodyData)bodyB.UserData, -contact.Manifold.LocalNormal);
-    entityB.CollisionStart((BodyData)bodyB.UserData, (BodyData)bodyA.UserData, contact.Manifold.LocalNormal);
+    entityA.CollisionStart((BodyData)bodyA.UserData, (BodyData)bodyB.UserData, contact.Manifold.LocalNormal);
+    entityB.CollisionStart((BodyData)bodyB.UserData, (BodyData)bodyA.UserData, -contact.Manifold.LocalNormal);
   }
 
   public void EndContact(Contact contact)
@@ -34,8 +34,8 @@ public class ContactListener : IContactListener
     Entity entityA = FindEntity((bodyA.UserData as BodyData).Iid, entities.ToArray());
     Entity entityB = FindEntity((bodyB.UserData as BodyData).Iid, entities.ToArray());
 
-    entityA.CollisionEnd((BodyData)bodyA.UserData, (BodyData)bodyB.UserData, -contact.Manifold.LocalNormal);
-    entityB.CollisionEnd((BodyData)bodyB.UserData, (BodyData)bodyA.UserData, contact.Manifold.LocalNormal);
+    entityA.CollisionEnd((BodyData)bodyA.UserData, (BodyData)bodyB.UserData, contact.Manifold.LocalNormal);
+    entityB.CollisionEnd((BodyData)bodyB.UserData, (BodyData)bodyA.UserData, -contact.Manifold.LocalNormal);
   }
 
   public void PostSolve(Contact contact, in ContactImpulse impulse)

@@ -67,6 +67,11 @@ public class Game
 
     box2D.Step(GetFrameTime(), 8, 3);
 
+    foreach (var entity in entities)
+    {
+      entity.UpdateTexturePos();
+    }
+
     // close game when esc is pressed
     if (IsKeyPressed(KeyboardKey.Escape))
     {
@@ -188,6 +193,10 @@ public class Game
 
             case "Turtle":
               entities.Add(new Turtle(FindBody(entity.Iid), entity));
+              break;
+
+            case "Mystery_Box":
+              entities.Add(new MysteryBox(FindBody(entity.Iid), entity));
               break;
 
             default:

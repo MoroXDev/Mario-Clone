@@ -45,7 +45,7 @@ public class Entity
 
   public virtual void Update(Game game)
   {
-    UpdateTexturePos();
+   
   }
 
   public virtual void CollisionStart(BodyData bodyDataA, BodyData enemyBodyDataB, Vector2 colDirection) // bodyDataA.Identifier == body.identifier
@@ -58,13 +58,13 @@ public class Entity
 
   }
 
-  void UpdateTexturePos()
+  public void UpdateTexturePos()
   {
     instance.Px[0] = (long)(body.GetPosition().X * Game.pixelToMeter);
     instance.Px[1] = (long)(body.GetPosition().Y * Game.pixelToMeter);
   }
   
-  public void Draw()
+  public virtual void Draw()
   {
     DrawTexturePro(Game.tilesets[instance.Tile.TilesetUid], new Rectangle(instance.Tile.X, instance.Tile.Y, instance.Tile.W, instance.Tile.H), new Rectangle(instance.Px[0] - instance.Tile.W / 2f, instance.Px[1] - instance.Tile.H / 2f, instance.Tile.W, instance.Tile.H), Vector2.Zero, 0, White);
   }

@@ -59,7 +59,7 @@ public class AnimatedEntity
 
   public void UpdateFrame()
   {
-    UpdateAnimationXReverse(ref tile, (int)frames, (int)frameChangeTimeMs, timer, (int)minFramePosX, (int)shiftX, ref shiftDirectionX);
+    UpdateAnimationX(ref tile, (int)frames, (int)frameChangeTimeMs, timer, (int)minFramePosX, (int)shiftX);
   }
 
   public void Draw()
